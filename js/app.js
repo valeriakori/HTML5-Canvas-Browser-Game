@@ -1,5 +1,5 @@
 const allEnemies = []
-// Enemies our player must avoid
+
 var Enemy = function(x,y) {
     this.x = x
     this.y = y
@@ -9,7 +9,7 @@ var Enemy = function(x,y) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    dt*this.x ++
+    (this.x += randomSpeed())*dt
 };
 
 // Make bugs appear on random stone row
@@ -19,12 +19,17 @@ function randomRow(){
     return possibleRow[randRow]
 }
 
+function randomSpeed(){
+    let randomSpeedVar = Math.floor(Math.random() * (8-1)+1)
+    return randomSpeedVar
+}
+
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-const enemy1 = new Enemy(101,randomRow())
+const enemy1 = new Enemy(-101,randomRow())
 allEnemies.push(enemy1)
 
 

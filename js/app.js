@@ -20,10 +20,8 @@ Enemy.prototype.render = function() {
 };
 
 const enemy1 = new Enemy(101,202)
-allEnemies.push(enemy1)
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+//allEnemies.push(enemy1)
+
 
 const Player = function(x,y) {
     this.x = x
@@ -39,10 +37,16 @@ Player.prototype.update = function(){}
 
 Player.prototype.handleInput = function(key){
     //if (!key == allowedKeys) { return }
+    //console.log("key pressed " + key)
     // up
-    if (key == 38) {
-        console.log("moving up")
+    if (key == 'up') {
+        player.y -= 100
+    } else if (key == 'left') {
+        player.x -= 100
+    } else if (key == 'down') {
         player.y += 100
+    } else if (key == 'right') {
+        player.x += 100
     }
 }
 

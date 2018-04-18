@@ -36,17 +36,23 @@ Player.prototype.render = function() {
 Player.prototype.update = function(){}
 
 Player.prototype.handleInput = function(key){
-    //if (!key == allowedKeys) { return }
-    //console.log("key pressed " + key)
-    // up
+
     if (key == 'up') {
-        player.y -= 100
+        if (this.y < 20) {
+            return
+        } else this.y -= 85
     } else if (key == 'left') {
-        player.x -= 100
+        if (this.x < 25) {
+            return
+        } else this.x -= 100
     } else if (key == 'down') {
-        player.y += 100
+        if (this.y > 404) {
+            return
+        } else this.y += 85
     } else if (key == 'right') {
-        player.x += 100
+        if (this.x > 400) {
+            return
+        } else this.x += 100
     }
 }
 

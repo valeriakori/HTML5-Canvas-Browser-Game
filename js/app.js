@@ -25,12 +25,21 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var player = {
-    update: function(){},
-    render: function(){},
-    handleInput: function() {}
+const Player = function(x,y) {
+    this.x = x
+    this.y = y
+    this.sprite = 'images/char-cat-girl.png'
 }
 
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
+}
+
+Player.prototype.update = function(){}
+
+Player.prototype.handleInput = function(){}
+
+const player = new Player(202,405);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies

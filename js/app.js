@@ -38,9 +38,10 @@ Player.prototype.update = function(){}
 Player.prototype.handleInput = function(key){
 
     if (key == 'up') {
-        if (this.y < 20) {
-            return
-        } else this.y -= 85
+        console.log(this.y)
+        if (this.y === 65) {
+            this.y = 405
+        } else {this.y -= 85}
     } else if (key == 'left') {
         if (this.x < 25) {
             return

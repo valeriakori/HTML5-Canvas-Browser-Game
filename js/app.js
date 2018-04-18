@@ -9,7 +9,7 @@ var Enemy = function(x,y) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    
+    dt*this.x ++
 };
 
 // Make bugs appear on random stone row

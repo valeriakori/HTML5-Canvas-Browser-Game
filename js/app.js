@@ -24,20 +24,43 @@ function randomSpeed(){
     return randomSpeedVar
 }
 
+function randomInterval() {
+    return Math.floor(Math.random() * (5-2)+2)
+}
+
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-const enemy1 = new Enemy(-101,randomRow())
-allEnemies.push(enemy1)
+setInterval(function() {
+var 
+}, randomInterval()*1000)
 
+const enemy1 = new Enemy(-101,randomRow())
+const enemy3 = new Enemy(-202,randomRow())
+const enemy4 = new Enemy(-350,randomRow())
+allEnemies.push(enemy1)
+allEnemies.push(enemy3)
+allEnemies.push(enemy4)
+
+
+// Check Collision
+function checkCollision(ent1,ent2) {
+    var vx = ent1.x - ent2.x
+    var vy = ent1.y - ent2.y
+    var distance = Math.sqrt(vx*vx+vy*vy)
+    
+    return distance < 50
+}
 
 const Player = function(x,y) {
     this.x = x
     this.y = y
     this.sprite = 'images/char-cat-girl.png'
 }
+
+var player = new Player(202,405); //202,405
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y)
@@ -48,7 +71,6 @@ Player.prototype.update = function(){}
 Player.prototype.handleInput = function(key){
 
     if (key == 'up') {
-        console.log(this.y)
         if (this.y === 73) {    // player --> Water
             this.y = 405        // Reset player to grass
         } else {this.y -= 83}
@@ -67,7 +89,6 @@ Player.prototype.handleInput = function(key){
     }
 }
 
-const player = new Player(202,405); //202,405
 
 // This listens for key presses and sends the keys to
 // Player.handleInput() method. 

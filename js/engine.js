@@ -153,6 +153,11 @@ var Engine = (function(global) {
 
         allEnemies.forEach(function(enemy) {
             enemy.render();
+            let isColliding = checkCollision(player,enemy)
+            if (isColliding) {
+                console.log("collision detected")
+                player.y = 405
+            }
         });
         player.render();
     }

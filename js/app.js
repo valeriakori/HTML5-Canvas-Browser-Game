@@ -33,9 +33,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-setInterval(function() {
-var 
-}, randomInterval()*1000)
+setInterval(function() {}, randomInterval()*1000)
 
 const enemy1 = new Enemy(-101,randomRow())
 const enemy3 = new Enemy(-202,randomRow())

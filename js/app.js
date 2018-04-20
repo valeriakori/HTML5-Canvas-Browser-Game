@@ -70,7 +70,8 @@ Player.prototype.handleInput = function(key){
 
     if (key == 'up') {
         if (this.y === 73) {    // player --> Water
-            this.y = 405        // Reset player to grass
+            //resetPosition()       // Reset player to grass
+            this.y=405
         } else {this.y -= 83}
     } else if (key == 'left') {
         if (this.x < 25) {
@@ -86,8 +87,9 @@ Player.prototype.handleInput = function(key){
         } else this.x += 100
     }
 }
-
-
+// Player.prototype.resetPosition = function() {
+//     player.y = 405 
+// }
 // This listens for key presses and sends the keys to
 // Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {

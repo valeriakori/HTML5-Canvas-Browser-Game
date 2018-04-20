@@ -157,6 +157,7 @@ var Engine = (function(global) {
             if (isColliding) {
                 console.log("collision detected")
                 player.y = 405
+                //resetPosition()
             }
         });
         player.render();

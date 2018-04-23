@@ -9,7 +9,13 @@ var Enemy = function(x,y) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    (this.x += randomSpeed())*dt
+ 
+    if (this.x < 500) {
+        (this.x += randomSpeed())*dt
+    } else {
+        this.x = 0
+        this.y = randomRow()
+    }
 };
 
 // Make bugs appear on random stone row
@@ -20,22 +26,14 @@ function randomRow(){
 }
 
 function randomSpeed(){
-    let randomSpeedVar = Math.floor(Math.random() * (8-1)+1)
+    let randomSpeedVar = Math.floor(Math.random() * (4-2)+2)
     return randomSpeedVar
-}
-
-function randomInterval() {
-    return Math.floor(Math.random() * (5-2)+2)
 }
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
-setInterval(function() {
-var 
-}, randomInterval()*1000)
 
 const enemy1 = new Enemy(-101,randomRow())
 const enemy3 = new Enemy(-202,randomRow())
@@ -72,7 +70,7 @@ Player.prototype.handleInput = function(key){
 
     if (key == 'up') {
         if (this.y === 73) {    // player --> Water
-            this.y = 405        // Reset player to grass
+            this.y = 405        // Reset player to grass 
         } else {this.y -= 83}
     } else if (key == 'left') {
         if (this.x < 25) {
@@ -103,4 +101,3 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-// Write function to reset player.y

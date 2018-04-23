@@ -1,4 +1,5 @@
 const allEnemies = []
+let pointsCounter = 0;
 
 var Enemy = function(x,y) {
     this.x = x
@@ -36,11 +37,11 @@ Enemy.prototype.render = function() {
 };
 
 const enemy1 = new Enemy(-101,randomRow())
-const enemy3 = new Enemy(-202,randomRow())
-const enemy4 = new Enemy(-350,randomRow())
+const enemy2 = new Enemy(-202,randomRow())
+const enemy3 = new Enemy(-350,randomRow())
 allEnemies.push(enemy1)
+allEnemies.push(enemy2)
 allEnemies.push(enemy3)
-allEnemies.push(enemy4)
 
 
 // Check Collision

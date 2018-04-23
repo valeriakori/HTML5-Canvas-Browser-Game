@@ -16,9 +16,13 @@
         <h1>Score Board</h1>
 
         <ul>
-            <li>Lifes: <i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i> <span class="scoreLife"></span></li>
+            <li>Lifes: 
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-heart"></i> 
+            </li>
             <li>Time: <span class="scoreTime">00:00</span></li>
-            <li>Points: <span class="scorePoints">5</span></li>
+            <li>Points: <span class="scorePoints">00</span></li>
         </ul>
         <div class="instructions">
             <h3>How To Play</h3>
@@ -31,17 +35,27 @@
         </div>
     </div>
 
-    <div class="modal-bg">
-        <div class="modal-content">
+    <div class="win-modal-bg">
+        <div class="win-modal-content">
             <h2 class="modalHeader">Well done!</h2>         
             <h3><a href="https://www.youtube.com/watch?v=DLzxrzFCyOs">Here</a> you go, you earned it!</h3>
         </div>
     </div>
+
+    <div class="notwin-modal-bg">
+            <div class="notwin-modal-content">
+                <p class="modalHeader">There are many tough things in life...</p>    
+                <p>This is not one of them!</p> 
+                <p id="tryAgain"><a>Try again</a></p>    
+
+            </div>
+        </div>
     
 
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
+    <script src="js/scoreCanvas.js"></script>
 
 </body>
 </html>

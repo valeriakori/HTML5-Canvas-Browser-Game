@@ -1,3 +1,78 @@
 body {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Courier New', Courier, monospace;
+}
+ 
+/***
+SCORE PANEL
+***/
+
+.scorePanel h1 {
+    padding-top: 25px;
+    font-weight: bolder;
+    color: #272044
+}
+.fas {
+    color: rgba(235, 18, 29, 0.726);
+    margin: 0 2px;
+}
+
+.scorePanel ul {
+    list-style: none;
+    padding: 25px;
+    color: #885DF1;
+}
+
+.scorePanel ul li {
+    padding-bottom: 10px;
+    font-weight: bolder;
+    font-size: 25px
+}
+
+.scorePanel ul li .scoreTime {
+    color: rgba(235, 18, 29, 0.726);
+}
+
+.scorePanel ul li .scorePoints {
+    color: rgba(235, 18, 29, 0.726);
+}
+
+.scorePanel h3 {
+    font-weight: bolder;
+    color: #272044;
+}
+.scorePanel .instructions {
+    font-size: 20px;
+}
+.scorePanel .instructions {
+    color:#2d2d2d;
+}
+
+/***
+MODAL
+***/
+.modal-bg {
+    background-color: rgba(46, 61, 73, 0.5);
+    width:100%;
+    height:100%;
+    position: absolute;
+    top: 0;
+    display:flex; /*toggle between display:flex and display:none to see/hide modal*/
+    justify-content: center;
+    align-items:center;
+ }
+
+ .modal-content {
+    height:110px;
+    width:450px;
+    border-radius: 10px;
+    background-color: rgb(219, 219, 219);
     text-align: center;
 }
+
+.modal-content a {
+    cursor: pointer;
+    color: #885DF1
+}
+

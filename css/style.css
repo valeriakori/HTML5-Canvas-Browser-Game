@@ -30,11 +30,7 @@ SCORE PANEL
     font-size: 25px
 }
 
-.scorePanel ul li .scoreTime {
-    color: #cc4918;
-}
-
-.scorePanel ul li .scorePoints {
+.scorePanel ul li span {
     color: #cc4918;
 }
 

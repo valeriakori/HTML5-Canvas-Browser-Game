@@ -111,7 +111,7 @@ function updateScore() {
 
 let updateLives = () => {
     lifesSpan.innerHTML = player.lifes
-    if (player.lifes === 0) {
+    if (player.lifes === 2) {
         notWinModal.style.display = "flex"
     }
 }
@@ -126,7 +126,7 @@ Player.prototype.handleInput = function(key){
     switch(key) {
         case ('up'):
             if (this.y === 73) {    // player --> Water
-                this.reset_player()     // Reset player to grass 
+                this.reset_player()
                 this.addPoints()
             } else {this.y -= 83}
             break;
@@ -151,9 +151,7 @@ Player.prototype.handleInput = function(key){
     }
     
 }
-// Player.prototype.resetPosition = function() {
-//     player.y = 405 
-// }
+
 // This listens for key presses and sends the keys to
 // Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {
@@ -167,3 +165,9 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+
+replayButton.addEventListener("click", openNotWinModal())
+
+function openNotWinModal (){
+    console.log("restart")
+}

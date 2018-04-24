@@ -155,8 +155,9 @@ var Engine = (function(global) {
             enemy.render();
             let isColliding = checkCollision(player,enemy)
             if (isColliding) {
-                console.log("collision detected")
-                player.y = 405
+                player.reset_player()
+                player.loosePoints()
+                player.looseLife()
             }
         });
         player.render();

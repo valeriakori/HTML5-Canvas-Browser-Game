@@ -1,7 +1,11 @@
 const allEnemies = []
-let pointsCounter = 0;
 
-let pointsSpan = document.querySelector(".scorePoints")
+/*SCORE BOARD & MODAL ELEMENTS*/
+let winModal = document.querySelector(".win-modal-bg"),
+    notWinModal = document.querySelector(".notwin-modal-bg"),
+    pointsSpan = document.querySelector(".scorePoints"),
+    lifesSpan = document.querySelector(".scoreLives"),
+    replayButton = document.querySelector("#tryAgain")
 
 class Element {
     constructor(x,y,sprite) {
@@ -75,37 +79,54 @@ class Player extends Element {
         this.points = 0
     }
 
-    reset_y() {
+    reset_player() {
+        this.x = 202
         this.y = 405
     }
 
     addPoints() {
-        this.points += 8
+        this.points += 7
+        updateScore()
+    }
+    loosePoints() {
+        if (player.points === 0) { //No negative score, because this is a positive game :)
+            return
+        } else {
+            this.points -= 7
+        }
+        updateScore()
+    }
+    looseLife() {
+        this.lifes -= 1
+        updateLives()
+    }
+}
+
+let updateScore = () => {
+    pointsSpan.innerText = player.points
+    if (player.points === 42) {
+        winModal.style.display = "flex"
+    }
+}
+
+let updateLives = () => {
+    lifesSpan.innerHTML = player.lifes
+    if (player.lifes === 0) {
+        notWinModal.style.display = "flex"
     }
 }
 
 var player = new Player(202,405,'images/char-cat-girl.png'); //202,405
 
 
-Player.prototype.update = function() {
-
-    // for (let i = 0; i < allEnemies.length; i++) {
-    //     var vx = ent1.x - ent2.x
-    //     var vy = ent1.y - ent2.y
-    //     var distance = Math.sqrt(vx*vx+vy*vy)
-            
-    //     return distance < 50
-    // }
-
-    
-}
+Player.prototype.update = function(dt) {}
 
 Player.prototype.handleInput = function(key){
 
     switch(key) {
         case ('up'):
             if (this.y === 73) {    // player --> Water
-                this.reset_y()     // Reset player to grass 
+                this.reset_player()     // Reset player to grass 
                 this.addPoints()
             } else {this.y -= 83}
             break;
@@ -145,3 +166,13 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+
+// replayButton.addEventListener("click",restartGame())
+
+// function restartGame (){
+
+// console.log("restarted")
+//     notWinModal.style.display = "none"
+//     var player = new Player(202,405,'images/char-cat-girl.png'); //202,405
+
+// }

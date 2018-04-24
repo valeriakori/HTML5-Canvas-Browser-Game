@@ -83,7 +83,7 @@ MODAL
     height:100%;
     position: absolute;
     top: 0;
-    display:flex; /*toggle between display:flex and display:none to see/hide modal*/
+    display:none; /*toggle between display:flex and display:none to see/hide modal*/
     justify-content: center;
     align-items:center;
  }

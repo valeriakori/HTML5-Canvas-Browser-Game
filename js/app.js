@@ -102,7 +102,7 @@ class Player extends Element {
     }
 }
 
-let updateScore = () => {
+function updateScore() {
     pointsSpan.innerText = player.points
     if (player.points === 42) {
         winModal.style.display = "flex"
@@ -151,8 +151,9 @@ Player.prototype.handleInput = function(key){
     }
     
 }
-
-
+// Player.prototype.resetPosition = function() {
+//     player.y = 405 
+// }
 // This listens for key presses and sends the keys to
 // Player.handleInput() method. 
 document.addEventListener('keyup', function(e) {
@@ -166,13 +167,3 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-
-// replayButton.addEventListener("click",restartGame())
-
-// function restartGame (){
-
-// console.log("restarted")
-//     notWinModal.style.display = "none"
-//     var player = new Player(202,405,'images/char-cat-girl.png'); //202,405
-
-// }

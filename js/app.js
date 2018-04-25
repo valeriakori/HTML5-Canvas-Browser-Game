@@ -5,7 +5,7 @@ let winModal = document.querySelector(".win-modal-bg"),
     notWinModal = document.querySelector(".notwin-modal-bg"),
     pointsSpan = document.querySelector(".scorePoints"),
     lifesSpan = document.querySelector(".scoreLives"),
-    replayButton = document.querySelector("#tryAgain")
+    replayButton = document.querySelector(".tryAgain")
 
 class Element {
     constructor(x,y,sprite) {
@@ -62,7 +62,6 @@ function randomSpeed(){
     return randomSpeedVar
 }
 
-
 // Check Collision
 function checkCollision(ent1,ent2) {
     var vx = ent1.x - ent2.x
@@ -111,12 +110,13 @@ function updateScore() {
 
 let updateLives = () => {
     lifesSpan.innerHTML = player.lifes
-    if (player.lifes === 2) {
+    if (player.lifes === 0) {
         notWinModal.style.display = "flex"
     }
 }
 
 var player = new Player(202,405,'images/char-cat-girl.png'); //202,405
+
 
 
 Player.prototype.update = function(dt) {}
@@ -165,9 +165,19 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+window.onclick = event => {
+    if (event.target == replayButton) {
+        closeNotWinModal()
+        restartGame()
+    }
+}
 
-replayButton.addEventListener("click", openNotWinModal())
+let closeNotWinModal = () => notWinModal.style.display = "none"
 
-function openNotWinModal (){
-    console.log("restart")
+let restartGame = () => {
+
+    player = new Player(202,405,'images/char-princess-girl.png'); //202,405
+    updateLives() //Set #of Lives to initial value
+    updateScore() //Set score to initial value
+
 }

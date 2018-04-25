@@ -153,9 +153,9 @@ var Engine = (function(global) {
             enemy.render();
             let isColliding = checkCollision(player,enemy)
             if (isColliding) {
-                player.reset_player()
-                player.loosePoints()
-                player.looseLife()
+                player.reset_player();
+                player.loosePoints();
+                player.looseLife();
             }
         });
         player.render();
